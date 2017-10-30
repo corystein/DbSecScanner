@@ -2,7 +2,7 @@ Database Security Scanner Agent
 =============
 This repository contains artifacts to aid in creating a Windows service using Go
 
-[![Build Status](https://ci.appveyor.com/api/projects/status/78ok880rhrc32tmw/branch/master?svg=true)]
+[![Build Status](https://ci.appveyor.com/api/projects/status/78ok880rhrc32tmw/branch/master?svg=true)](https://ci.appveyor.com/api/projects/status/78ok880rhrc32tmw) 
 
 
 

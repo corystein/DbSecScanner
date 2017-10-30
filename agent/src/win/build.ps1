@@ -43,7 +43,7 @@ try {go get -u golang.org/x/sys/windows/svc} catch {}
 Write-Output "Building..."
 
 $AppVeyorPath = "C:\projects\dbsecscanner"
-if ($pwd -ieq $AppVeyorPath) {
+if (Test-Path $AppVeyorPath) {
     Write-Output "Change path to [$AppVeyorPath\agent\src\win]"
     Set-Location "$AppVeyorPath\agent\src\win"
 }

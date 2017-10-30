@@ -3,7 +3,7 @@ Database Security Scanner Agent
 This repository contains artifacts to aid in creating a Windows service using Go
 
 [![Build status](https://ci.appveyor.com/api/projects/status/78ok880rhrc32tmw?svg=true)](https://ci.appveyor.com/project/corystein/dbsecscanner)
-[![codecov](https://codecov.io/gh/corystein/DbSecScanner/branch/master/graph/badge.svg)](https://codecov.io/gh/corystein/DbSecScanner)
+[![Coverage Status](https://coveralls.io/repos/github/corystein/DbSecScanner/badge.svg?branch=master)](https://coveralls.io/github/corystein/DbSecScanner?branch=master)
 
 
 ## Getting Started

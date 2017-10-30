@@ -42,8 +42,9 @@ try {go get -u golang.org/x/sys/windows/svc} catch {}
 # Compile executable
 Write-Output "Building..."
 
-if ($invocation.MyCommand.Path -ieq "C:\projects\dbsecscanner") {
-    Push-Location -Path "C:\projects\dbsecscanner\agent\src\win"
+$AppVeyorPath = "C:\projects\dbsecscanner"
+if ($invocation.MyCommand.Path -ieq $AppVeyorPath -or $pwd -ieq $AppVeyorPath) {
+    Set-Location "$AppVeyorPath\agent\src\win"
 }
 
 Write-Output "Current Directory: [$pwd]"

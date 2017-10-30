@@ -22,7 +22,11 @@ choco install golang -y
 ```powershell
 go get -u golang.org/x/sys/windows/svc
 ```
+4. Compile executable
+```powershell
+./build.ps1
+```
 
 ## Links
-[Service Example](https://github.com/golang/sys/tree/master/windows/svc/example)
-[Go Cron](https://github.com/jasonlvhit/gocron)
+- [Service Example](https://github.com/golang/sys/tree/master/windows/svc/example)
+- [Go Cron](https://github.com/jasonlvhit/gocron)

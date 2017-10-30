@@ -41,6 +41,11 @@ try {go get -u golang.org/x/sys/windows/svc} catch {}
 
 # Compile executable
 Write-Output "Building..."
+
+if ($pwd -eq "C:\projects\dbsecscanner") {
+    Set-Location -Path "C:\projects\dbsecscanner\agent\src\win"
+}
+
 go generate
 go build -o .\dbsecscanner.exe
 

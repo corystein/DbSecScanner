@@ -20,7 +20,8 @@ func usage(errmsg string) {
 }
 
 func main() {
-	const svcName = "myservice"
+	const svcName = "DbSecScanner"
+	const svcDescription = "Database Security Scanner"
 
 	isIntSess, err := svc.IsAnInteractiveSession()
 	if err != nil {
@@ -41,7 +42,7 @@ func main() {
 		runService(svcName, true)
 		return
 	case "install":
-		err = installService(svcName, "my service")
+		err = installService(svcName, svcDescription)
 	case "remove":
 		err = removeService(svcName)
 	case "start":

@@ -46,6 +46,8 @@ if ($invocation.MyCommand.Path -ieq "C:\projects\dbsecscanner") {
     Push-Location -Path "C:\projects\dbsecscanner\agent\src\win"
 }
 
+Write-Output "Current Directory: [$pwd]"
+
 go generate
 go build -o .\dbsecscanner.exe
 

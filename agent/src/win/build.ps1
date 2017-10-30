@@ -20,7 +20,8 @@ if ([String]::IsNullOrEmpty($VERSION)) {
 #export GOARCH="$($ARCH)"
 
 #env GOOS=windows GOARCH=amd64 go build github.com/mholt/caddy/caddy
-#$env:GOPATH = "$($PSScriptRoot)"
+$env:GOPATH = "$Env:USERPROFILE\go"
+$env:GOBIN = "$env:GOPATH\bin"
 $env:GOOS = "windows"
 $env:GOARCH = "amd64"
 
@@ -35,9 +36,12 @@ go install                                                         `
 #git config --global http.sslVerify false
 
 # Get dependencies
-#go get github.com/josephspurrier/goversioninfo/cmd/goversioninfo
-#go get -u golang.org/x/sys/windows/svc
+try {go get github.com/josephspurrier/goversioninfo/cmd/goversioninfo} catch {}
+try {go get -u golang.org/x/sys/windows/svc} catch {}
 
 # Compile executable
+Write-Output "Building..."
 go generate
 go build -o .\dbsecscanner.exe
+
+Write-Output "Successful"

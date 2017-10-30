@@ -5,7 +5,6 @@ This repository contains artifacts to aid in creating a Windows service using Go
 ## Getting Started
 The following step will get you started to executing the build.  Some configuration may be required.
 
-
 ## Requirements
 - Operating System : Windows or Mac OS
 - Go [https://www.golang.org/]

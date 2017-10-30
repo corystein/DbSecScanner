@@ -31,4 +31,11 @@ go install                                                         `
     ./...
 #>
 
+# Optional 
+#git config --global http.sslVerify false
+
+# Get dependencies
+go get -u golang.org/x/sys/windows/svc
+
+# Compile executable
 go build

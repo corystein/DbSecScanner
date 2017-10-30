@@ -19,7 +19,10 @@ Set-ExecutionPolicy Bypass; iex ((New-Object System.Net.WebClient).DownloadStrin
 ```powershell
 choco install golang -y
 ```
-
+3. Install GoLang dependency
+```powershell
+go get -u golang.org/x/sys/windows/svc
+```
 
 ## Links
 [Service Example](https://github.com/golang/sys/tree/master/windows/svc/example)

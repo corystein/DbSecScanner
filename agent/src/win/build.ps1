@@ -46,9 +46,12 @@ $AppVeyorPath = "C:\projects\dbsecscanner"
 if (Test-Path $AppVeyorPath) {
     Write-Output "Change path to [$AppVeyorPath\agent\src\win]"
     Set-Location "$AppVeyorPath\agent\src\win"
+    $env:Path += ";$env:GOBIN"
 }
 
 Write-Output "Current Directory: [$pwd]"
+
+
 
 go generate
 go build -o .\dbsecscanner.exe

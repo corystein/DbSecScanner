@@ -19,7 +19,11 @@ before_build:
 
 # to run your custom scripts instead of automatic MSBuild
 build_script:
+# Compile
+  - appveyor AddCompilationMessage "Starting Compile"
   - ps: .\agent\src\win\build.ps1
+  - appveyor AddCompilationMessage "Compile Success"
 
 test_script:
+# Unit tests
  - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"YourTestDll -noshadow" -output:"coverage.xml" -filter:"+[YourSUTNamepace*]* -[YourTestNamespace*]*"

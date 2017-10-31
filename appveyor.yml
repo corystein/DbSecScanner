@@ -28,11 +28,11 @@ build_script:
 
 test_script:
   # Run the unit tests suite
-  - go test -v ./...
+  #- go test -v ./...
   # Collect coverage reports
-  - go list -f '{{if len .TestGoFiles}}"go test -coverprofile={{.Dir}}/.coverprofile {{.ImportPath}}"{{end}}' ./... | xargs -i sh -c {}
+ # - go list -f '{{if len .TestGoFiles}}"go test -coverprofile={{.Dir}}/.coverprofile {{.ImportPath}}"{{end}}' ./... | xargs -i sh -c {}
   # Merge coverage reports
-  - gover . coverprofile.txt
+ # - gover . coverprofile.txt
 
 # To disable deployment
 deploy: off

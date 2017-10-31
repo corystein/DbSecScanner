@@ -8,6 +8,8 @@
 #      general configuration      #
 #---------------------------------#
 
+# https://github.com/elastic/beats/blob/master/.appveyor.yml
+
 # version format
 version: 1.0.{build}
 
@@ -27,3 +29,9 @@ build_script:
 test_script:
 # Unit tests
  - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"YourTestDll -noshadow" -output:"coverage.xml" -filter:"+[YourSUTNamepace*]* -[YourTestNamespace*]*"
+
+# To disable deployment
+deploy: off
+
+# Notifications should only be setup using the AppVeyor UI so that
+# forks can be created without inheriting the settings.

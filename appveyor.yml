@@ -14,9 +14,9 @@
 version: 1.0.{build}
 
 before_build:
-- choco install golang
-- choco install opencover.portable
-- choco install codecov
+- choco install golang --limit-output --no-progress
+- choco install opencover.portable --limit-output --no-progress
+- choco install codecov --limit-output --no-progress
 - go get -t -v ./...
 
 # to run your custom scripts instead of automatic MSBuild

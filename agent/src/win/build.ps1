@@ -38,6 +38,7 @@ go install                                                         `
 # Get dependencies
 try {go get github.com/josephspurrier/goversioninfo/cmd/goversioninfo} catch {}
 try {go get -u golang.org/x/sys/windows/svc} catch {}
+try {go get -u github.com/clagraff/argparse} catch {}
 
 # Compile executable
 Write-Output "Building..."

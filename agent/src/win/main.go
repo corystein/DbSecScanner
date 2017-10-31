@@ -1,4 +1,4 @@
-//go:generate goversioninfo -icon=icon.ico -manifest=goversioninfo.exe.manifest
+//go:generate goversioninfo
 
 package main
 
@@ -8,6 +8,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/clagraff/argparse"
 	"golang.org/x/sys/windows/svc"
 )
 
@@ -21,9 +22,44 @@ func usage(errmsg string) {
 	os.Exit(2)
 }
 
+func callback(p *argparse.Parser, ns *argparse.Namespace, leftovers []string, err error) {
+	if err != nil {
+		switch err.(type) {
+		case argparse.ShowHelpErr, argparse.ShowVersionErr:
+			// For either ShowHelpErr or ShowVersionErr, the parser has already
+			// displayed the necessary text to the user. So we end the program
+			// by returning.
+			return
+		default:
+			fmt.Println(err, "\n")
+			p.ShowHelp()
+		}
+
+		return // Exit program
+	}
+
+	name := ns.Get("name").(string)
+	upper := ns.Get("upper").(string) == "true"
+
+	if upper == true {
+		name = strings.ToUpper(name)
+	}
+
+	fmt.Printf("Hello, %s!\n", name)
+	if len(leftovers) > 0 {
+		fmt.Println("\nUnused args:", leftovers)
+	}
+}
+
 func main() {
 	const svcName = "DbSecScanner"
 	const svcDescription = "Database Security Scanner"
+	const version = "1.0.0.0"
+
+	p := argparse.NewParser("Output a friendly greeting", callback).Version(version)
+	p.AddHelp().AddVersion() // Enable help and version flags
+
+	fmt.Printf("Version: %s\n", version)
 
 	isIntSess, err := svc.IsAnInteractiveSession()
 	if err != nil {

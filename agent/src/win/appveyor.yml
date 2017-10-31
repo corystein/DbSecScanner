@@ -11,6 +11,12 @@
 # version format
 version: 1.0.{build}
 
+before_build:
+- choco install golang
+- choco install opencover.portable
+- choco install codecov
+
+
 # to run your custom scripts instead of automatic MSBuild
 build_script:
   - ps: .\agent\src\win\build.ps1
